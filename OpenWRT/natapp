@@ -5,7 +5,7 @@
 # Required-Stop:     /etc/init.d/natapp stop
 # Short-Description: natapp 开机启动脚本 for openwrt
 # Description:
-#
+# https://github.com/natapp/natapp_autostart/tree/master/OpenWRT
 ### END INIT INFO
 
 START=76
