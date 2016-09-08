@@ -1,5 +1,6 @@
 Natapp For OpenWRT 开机启动脚本
 
+##运行natapp客户端
 1. 在 https://natapp.cn 官网 下载客户端.
 放在目录 `/usr/natapp/`
 运行
@@ -20,6 +21,7 @@ chmod a+x /usr/natapp/natapp
 ```
 实际测试穿透应用,确保无误,后关闭客户端
 
+##自启动脚本
 4.将启动脚本放在 `/etc/init.d/` 下
 
 给予 755权限
@@ -45,7 +47,7 @@ reboot
 ```
 正常的话,已经可以自动了
 
-8.相关命令
+####相关命令
 ```
 /etc/init.d/natapp start    #开启
 /etc/init.d/natapp stop     #关闭
