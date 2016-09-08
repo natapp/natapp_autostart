@@ -1,0 +1,32 @@
+#!/bin/sh /etc/rc.common
+### BEGIN INIT INFO
+# Provides:          natapp.cn
+# Required-Start:    /etc/init.d/natapp start
+# Required-Stop:     /etc/init.d/natapp stop
+# Short-Description: natapp 开机启动脚本 for openwrt
+# Description:
+#
+### END INIT INFO
+
+START=76
+
+NAME=natapp
+DAEMON=/usr/natapp/$NAME
+PIDFILE=/var/run/$NAME.pid
+
+start() {
+   if [ -f $PIDFILE ]; then
+        echo -n "$NAME already running"
+        echo "."
+    else
+        echo "Starting $NAME..."
+	    start-stop-daemon -S -x $DAEMON  -p $PIDFILE -m -b
+        echo "."
+    fi
+}
+stop() {
+        echo "Stoping $NAME..."
+        start-stop-daemon -K  -p $PIDFILE  -s TERM
+        rm -rf $PIDFILE
+        echo "."
+}
