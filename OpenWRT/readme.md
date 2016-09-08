@@ -18,6 +18,40 @@ chmod a+x /usr/natapp/natapp
 ```
 ./usr/natapp/natapp
 ```
-确保无误,关闭客户端
+实际测试穿透应用,确保无误,后关闭客户端
 
+4.将启动脚本放在 `/etc/init.d/` 下
+
+给予 755权限
+```
+chmod 755 /etc/init.d/natapp
+```
+
+5.测试 init.d 启动
+运行
+```
+/etc/init.d/natapp start
+```
+同3,确保穿透应用运行无误.
+
+6.加入开机自启动
+```
+/etc/init.d/natapp enable && echo on
+```
+
+7.
+```
+reboot
+```
+正常的话,已经可以自动了
+
+8.相关命令
+```
+/etc/init.d/natapp start    #开启
+/etc/init.d/natapp stop     #关闭
+/etc/init.d/natapp restart  #重启
+
+/etc/init.d/natapp enable && echo on    #加入开机启动
+/etc/init.d/natapp disable && echo off  #取消开机启动
+```
 
