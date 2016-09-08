@@ -22,7 +22,7 @@ chmod a+x /usr/natapp/natapp
 实际测试穿透应用,确保无误,后关闭客户端
 
 ##自启动脚本
-4.将启动脚本 ([下载])(https://raw.githubusercontent.com/natapp/natapp_autostart/master/OpenWRT/natapp) 放在 `/etc/init.d/` 下
+4.将启动脚本 ([下载](https://raw.githubusercontent.com/natapp/natapp_autostart/master/OpenWRT/natapp)) 放在 `/etc/init.d/` 下
 
 给予 755权限
 ```
