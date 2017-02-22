@@ -1,0 +1,42 @@
+#!/bin/sh
+### BEGIN INIT INFO
+# Provides:          natapp.cn
+# Required-Start:    /etc/init.d/natapp start
+# Required-Stop:     /etc/init.d/natapp stop
+# Short-Description: natapp
+# Description:
+# https://github.com/natapp/natapp_autostart/tree/master/RaspberryPi
+### END INIT INFO
+
+#START=76
+
+NAME=natapp
+DAEMON=/usr/natapp/$NAME
+PIDFILE=/var/run/$NAME.pid
+
+case "$1" in
+  start)
+      if [ -f $PIDFILE ]; then
+        echo -n "$NAME already running"
+        echo "."
+    else
+        echo "Starting $NAME..."
+	    start-stop-daemon -S -x $DAEMON  -p $PIDFILE -m -b
+        echo "."
+    fi
+    ;;
+  stop)
+            echo "Stoping $NAME..."
+        start-stop-daemon -K  -p $PIDFILE  -s TERM
+        rm -rf $PIDFILE
+        echo "."
+    ;;
+  restart)
+    $0 stop && sleep 2 && $0 start
+    ;;
+  *)
+    echo "Usage: $0 {start|stop|restart}"
+    exit 1
+    ;;
+esac
+exit 0
