@@ -38,7 +38,7 @@ chmod 755 /etc/init.d/natapp
 
 6.加入开机自启动
 ```
-/etc/init.d/natapp enable && echo on
+/etc/init.d/update-rc.d natapp defaults 90
 ```
 
 7.
@@ -53,7 +53,7 @@ reboot
 /etc/init.d/natapp stop     #关闭
 /etc/init.d/natapp restart  #重启
 
-/etc/init.d/natapp enable && echo on    #加入开机启动
-/etc/init.d/natapp disable && echo off  #取消开机启动
+/etc/init.d/update-rc.d natapp defaults 99    #加入开机启动
+/etc/init.d/update-rc.d -f natapp remove  #取消开机启动
 ```
 
