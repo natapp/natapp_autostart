@@ -41,6 +41,7 @@ sudo /etc/init.d/natapp start
 cd /etc/init.d
 sudo update-rc.d natapp defaults 90
 ```
+此步骤需保证无任何错误输出
 
 7.
 ```
