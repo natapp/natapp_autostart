@@ -5,7 +5,7 @@ Natapp For 树莓派 开机启动脚本
 放在目录 `/usr/natapp/`
 运行
 ```
-chmod a+x /usr/natapp/natapp
+sudo chmod a+x /usr/natapp/natapp
 ```
 给予可执行权限
  
