@@ -26,34 +26,36 @@ chmod a+x /usr/natapp/natapp
 
 给予 755权限
 ```
-chmod 755 /etc/init.d/natapp
+sudo chmod 755 /etc/init.d/natapp
 ```
 
 5.测试 init.d 启动
 运行
 ```
-/etc/init.d/natapp start
+sudo /etc/init.d/natapp start
 ```
 同3,确保穿透应用运行无误.
 
 6.加入开机自启动
 ```
-/etc/init.d/update-rc.d natapp defaults 90
+cd /etc/init.d
+sudo update-rc.d natapp defaults 90
 ```
 
 7.
 ```
-reboot
+sudo reboot
 ```
 正常的话,已经可以自动了
 
 ####相关命令
 ```
-/etc/init.d/natapp start    #开启
-/etc/init.d/natapp stop     #关闭
-/etc/init.d/natapp restart  #重启
+sudo /etc/init.d/natapp start    #开启
+sudo /etc/init.d/natapp stop     #关闭
+sudo /etc/init.d/natapp restart  #重启
 
-/etc/init.d/update-rc.d natapp defaults 99    #加入开机启动
-/etc/init.d/update-rc.d -f natapp remove  #取消开机启动
+cd /etc/init.d
+sudo update-rc.d natapp defaults 90    #加入开机启动
+sudo update-rc.d -f natapp remove  #取消开机启动
 ```
 
