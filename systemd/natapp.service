@@ -1,0 +1,17 @@
+[Unit]
+Description=NapApp Service
+Wants=network-online.target
+After=network.target
+
+[Service]
+Type=simple
+ExecStart=/usr/local/natapp/natapp -authtoken=xxxxxx -log=stdout
+# Suppress stderr to eliminate duplicated messages in syslog. NM calls openlog()
+# with LOG_PERROR when run in foreground. But systemd redirects stderr to
+# syslog by default, which results in logging each message twice.
+StandardOutput=syslog
+StandardError=null
+
+
+[Install]
+WantedBy=multi-user.target
