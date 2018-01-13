@@ -1,3 +1,10 @@
+# Centos 7
+# 存放位置 /usr/lib/systemd/system
+# 开启 systemctl start natapp
+# 关闭 systemctl stop natapp
+# 开机启动 systemctl enable natapp
+# 取消开机启动 system disable natapp
+
 [Unit]
 Description=NapApp Service
 Wants=network-online.target
