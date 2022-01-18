@@ -1,4 +1,4 @@
-# Centos 7
+# Centos 7 / Debian Buster
 # 存放位置 /usr/lib/systemd/system
 # 开启 systemctl start natapp
 # 关闭 systemctl stop natapp
@@ -12,13 +12,19 @@ After=network.target
 
 [Service]
 Type=simple
+Restart=on-failure
+RestartSec=3
 ExecStart=/usr/local/natapp/natapp -authtoken=xxxxxx -log=stdout
-# Suppress stderr to eliminate duplicated messages in syslog. NM calls openlog()
-# with LOG_PERROR when run in foreground. But systemd redirects stderr to
-# syslog by default, which results in logging each message twice.
-StandardOutput=syslog
+# syslog output type for StandardOutPut is obsoleted.
+StandardOutput=journal
 StandardError=null
 
+# Hardening Require systemd 235+
+AmbientCapabilities=CAP_NET_BIND_SERVICE
+DynamicUser=true
+SystemCallArchitectures=native
+MemoryDenyWriteExecute=true
+NoNewPrivileges=true
 
 [Install]
 WantedBy=multi-user.target
